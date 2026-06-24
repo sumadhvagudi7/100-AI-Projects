@@ -1,0 +1,40 @@
+Faiss
+Faiss is a library for efficient similarity search and clustering of dense vectors. It contains algorithms that search in sets of vectors of any size, up to ones that possibly do not fit in RAM. It also contains supporting code for evaluation and parameter tuning.
+
+Faiss is written in C++ with complete wrappers for Python. Some of the most useful algorithms are implemented on the GPU. It is developed primarily at FAIR, the fundamental AI research team of Meta.
+
+What is similarity search?
+Given a set of vectors 
+ in dimension 
+, Faiss builds a data structure in RAM from it. After the structure is constructed, when given a new vector 
+ in dimension 
+ it performs efficiently the operation:
+
+where 
+ is the Euclidean distance (
+).
+
+In Faiss terms, the data structure is an index, an object that has an add method to add 
+ vectors. Note that the 
+’s are assumed to be fixed.
+
+Computing the argmin is the search operation on the index.
+
+This is all what Faiss is about. It can also:
+
+return not just the nearest neighbor, but also the 2nd nearest, 3rd, …, k-th nearest neighbor
+
+search several vectors at a time rather than one (batch processing). For many index types, this is faster than searching one vector after another
+
+trade precision for speed, ie. give an incorrect result 10% of the time with a method that’s 10x faster or uses 10x less memory
+
+perform maximum inner product search 
+ instead of minimum Euclidean search. There is also limited support for other distances (L1, Linf, etc.).
+
+return all elements that are within a given radius of the query point (range search)
+
+store the index on disk rather than in RAM.
+
+index binary vectors rather than floating-point vectors
+
+ignore a subset of index vectors according to a predicate on the vector ids.

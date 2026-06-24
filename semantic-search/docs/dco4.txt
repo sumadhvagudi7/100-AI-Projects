@@ -1,0 +1,17 @@
+Cloud Computing
+Azure OpenAI
+AWS
+Data Science
+Python
+Deep Learning
+NLP
+Vector Databases
+FAISS
+Transformers
+RAG
+Prompt Engineering
+Cyber Security
+DevOps
+Kubernetes
+SQL
+Big Data
